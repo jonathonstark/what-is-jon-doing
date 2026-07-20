@@ -13,7 +13,7 @@
         {
           "id": "t-1784564055169",
           "text": "Check Ben calcs",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t-1784564160719",
@@ -23,7 +23,7 @@
         {
           "id": "t-1784564180951",
           "text": "Redlines to CAD",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t-1784564187137",
@@ -65,7 +65,7 @@
         {
           "id": "t-1784563729904",
           "text": "Overlook initial design",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t-1784563877790",
@@ -75,7 +75,7 @@
         {
           "id": "t-1784563893479",
           "text": "Initial Redlines to CAD",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t-1784563893883",
