@@ -2,6 +2,36 @@
   "lastUpdated": "2026-07-20",
   "projects": [
     {
+      "id": "proj-1784565071399",
+      "projectNumber": "1162.90102.08",
+      "name": "Bradley Expansion Project",
+      "category": "Structures",
+      "priority": "Medium",
+      "status": "Planned",
+      "dueDate": "2026-07-31",
+      "description": "My role is currently limited to the sediment guide wall to divert sediment from the diversion dam.",
+      "tasks": [
+        {
+          "id": "t-1784565071399",
+          "text": "Initial Design",
+          "completed": true,
+          "dueDate": "2026-06-01"
+        },
+        {
+          "id": "t-1784565145454",
+          "text": "Review Aleyna stability checks for MSE alternative",
+          "completed": false,
+          "dueDate": "2026-07-24"
+        },
+        {
+          "id": "t-1784565145765",
+          "text": "Specs and Estimates",
+          "completed": false,
+          "dueDate": "2026-07-31"
+        }
+      ]
+    },
+    {
       "id": "proj-1784564055169",
       "name": "Joint System Canal Piping",
       "category": "Structures",
