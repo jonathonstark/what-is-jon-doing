@@ -1,14 +1,23 @@
 {
+  "lastUpdated": "2026-07-20",
   "projects": [
     {
       "id": "proj-1",
-      "name": "Bridge Substructure Reinforcement Audit",
+      "name": "Bridge Substructu",
       "priority": "High",
       "status": "In Progress",
       "dueDate": "2026-08-15",
       "tasks": [
-        { "id": 1, "text": "Review bent cap rebar ratios", "completed": true },
-        { "id": 2, "text": "Cross-reference WSDOT yield stress parameters", "completed": false }
+        {
+          "id": 1,
+          "text": "Review bent cap rebar ratios",
+          "completed": true
+        },
+        {
+          "id": 2,
+          "text": "Cross-reference WSDOT yield stress parameters",
+          "completed": false
+        }
       ]
     }
   ]
