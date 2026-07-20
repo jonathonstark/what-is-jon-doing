@@ -13,22 +13,26 @@
         {
           "id": "t-1784564055169",
           "text": "Check Ben calcs",
-          "completed": true
+          "completed": true,
+          "dueDate": "2026-07-17"
         },
         {
           "id": "t-1784564160719",
           "text": "Review with Ben",
-          "completed": false
+          "completed": false,
+          "dueDate": "2026-07-22"
         },
         {
           "id": "t-1784564180951",
           "text": "Redlines to CAD",
-          "completed": true
+          "completed": true,
+          "dueDate": "2026-07-24"
         },
         {
           "id": "t-1784564187137",
           "text": "Quantities and Estimates check",
-          "completed": false
+          "completed": false,
+          "dueDate": "2026-07-22"
         }
       ]
     },
@@ -44,12 +48,14 @@
         {
           "id": "t-1784563965259",
           "text": "Dive Observation",
-          "completed": false
+          "completed": false,
+          "dueDate": "2026-07-27"
         },
         {
           "id": "t-1784564030251",
           "text": "Dive findings memo",
-          "completed": false
+          "completed": false,
+          "dueDate": "2026-07-29"
         }
       ]
     },
@@ -65,27 +71,32 @@
         {
           "id": "t-1784563729904",
           "text": "Overlook initial design",
-          "completed": true
+          "completed": true,
+          "dueDate": "2026-07-01"
         },
         {
           "id": "t-1784563877790",
           "text": "Mike McNulty Review",
-          "completed": false
+          "completed": false,
+          "dueDate": "2026-07-24"
         },
         {
           "id": "t-1784563893479",
           "text": "Initial Redlines to CAD",
-          "completed": true
+          "completed": true,
+          "dueDate": "2026-07-10"
         },
         {
           "id": "t-1784563893883",
           "text": "Specs and Estimates",
-          "completed": false
+          "completed": false,
+          "dueDate": "2026-07-24"
         },
         {
           "id": "t-1784563894050",
           "text": "Railing Design",
-          "completed": false
+          "completed": false,
+          "dueDate": "2026-07-24"
         }
       ]
     },
@@ -99,12 +110,14 @@
         {
           "id": 1,
           "text": "Research upcoming MDT Projects",
-          "completed": true
+          "completed": true,
+          "dueDate": "2026-07-17"
         },
         {
           "id": 2,
           "text": "Review with Mike Miotke",
-          "completed": false
+          "completed": false,
+          "dueDate": "2026-07-24"
         }
       ],
       "category": "Admin",
