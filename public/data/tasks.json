@@ -44,7 +44,7 @@
       "priority": "Low",
       "status": "Planned",
       "dueDate": "2026-07-27",
-      "description": "Full day dive observation.\n\n2870.000971.01",
+      "description": "Full day dive observation.",
       "tasks": [
         {
           "id": "t-1784563965259",
@@ -58,7 +58,8 @@
           "completed": false,
           "dueDate": "2026-07-29"
         }
-      ]
+      ],
+      "projectNumber": "2870.000971.01"
     },
     {
       "id": "proj-1784563729904",
@@ -67,7 +68,7 @@
       "priority": "Medium",
       "status": "In Review",
       "dueDate": "2026-07-24",
-      "description": "Cantilevered timber overlook design.\n\n1150.62733.01",
+      "description": "Cantilevered timber overlook design.",
       "tasks": [
         {
           "id": "t-1784563729904",
@@ -99,7 +100,8 @@
           "completed": false,
           "dueDate": "2026-07-24"
         }
-      ]
+      ],
+      "projectNumber": "1150.62733.01"
     },
     {
       "id": "proj-1",
