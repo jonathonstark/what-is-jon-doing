@@ -104,7 +104,7 @@ export default function App() {
           'Accept': 'application/vnd.github.v3+json'
         },
         body: JSON.stringify({
-          message: `Update tasks and subtask target dates [Dashboard Admin]`,
+          message: `Update tasks and target dates [Dashboard Admin]`,
           content: contentEncoded,
           sha: currentSha
         })
@@ -158,6 +158,16 @@ export default function App() {
     }
   };
 
+  // Helper function to find the latest date among subtasks
+  const getLatestTaskDate = (tasks) => {
+    if (!tasks || tasks.length === 0) return null;
+    const validDates = tasks
+      .map(t => t.dueDate)
+      .filter(Boolean)
+      .sort((a, b) => new Date(b) - new Date(a));
+    return validDates[0] || null;
+  };
+
   // Safe Immutable State Updaters
   const handleAddProject = () => {
     const today = new Date().toISOString().split('T')[0];
@@ -184,9 +194,12 @@ export default function App() {
     const defaultDate = editProjects[projIndex]?.dueDate || new Date().toISOString().split('T')[0];
     setEditProjects(prev => prev.map((proj, pIdx) => {
       if (pIdx !== projIndex) return proj;
+      const updatedTasks = [...(proj.tasks || []), { id: `t-${Date.now()}`, text: "New task item", completed: false, dueDate: defaultDate }];
+      const latestDate = getLatestTaskDate(updatedTasks);
       return {
         ...proj,
-        tasks: [...(proj.tasks || []), { id: `t-${Date.now()}`, text: "New task item", completed: false, dueDate: defaultDate }]
+        tasks: updatedTasks,
+        dueDate: latestDate || proj.dueDate
       };
     }));
   };
@@ -204,9 +217,12 @@ export default function App() {
   const handleUpdateTaskDate = (projIndex, taskIndex, dueDate) => {
     setEditProjects(prev => prev.map((proj, pIdx) => {
       if (pIdx !== projIndex) return proj;
+      const updatedTasks = proj.tasks.map((t, tIdx) => tIdx === taskIndex ? { ...t, dueDate } : t);
+      const latestDate = getLatestTaskDate(updatedTasks);
       return {
         ...proj,
-        tasks: proj.tasks.map((t, tIdx) => tIdx === taskIndex ? { ...t, dueDate } : t)
+        tasks: updatedTasks,
+        dueDate: latestDate || proj.dueDate
       };
     }));
   };
@@ -224,9 +240,12 @@ export default function App() {
   const handleDeleteTask = (projIndex, taskIndex) => {
     setEditProjects(prev => prev.map((proj, pIdx) => {
       if (pIdx !== projIndex) return proj;
+      const updatedTasks = proj.tasks.filter((_, tIdx) => tIdx !== taskIndex);
+      const latestDate = getLatestTaskDate(updatedTasks);
       return {
         ...proj,
-        tasks: proj.tasks.filter((_, tIdx) => tIdx !== taskIndex)
+        tasks: updatedTasks,
+        dueDate: latestDate || proj.dueDate
       };
     }));
   };
@@ -413,7 +432,7 @@ export default function App() {
                     </div>
 
                     <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 text-xs text-slate-500 flex justify-between items-center">
-                      <span>Project Target:</span>
+                      <span>Project Target (Latest Subtask):</span>
                       <strong className="text-slate-700 font-semibold">{project.dueDate}</strong>
                     </div>
                   </div>
@@ -550,12 +569,14 @@ export default function App() {
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="text-xs font-semibold text-slate-600 block mb-1">Overall Project Due Date</label>
+                        <label className="text-xs font-semibold text-slate-600 block mb-1">
+                          Project Target Due Date <span className="text-slate-400 font-normal">(Auto-syncs to latest subtask)</span>
+                        </label>
                         <input
                           type="date"
                           value={proj.dueDate}
                           onChange={(e) => handleUpdateProjectField(pIdx, 'dueDate', e.target.value)}
-                          className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-md text-xs"
+                          className="w-full px-2.5 py-1.5 bg-white border border-slate-300 rounded-md text-xs font-medium"
                         />
                       </div>
 
