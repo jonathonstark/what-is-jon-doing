@@ -3,6 +3,25 @@
   "statusBlurb": "Compiling railing alternatives",
   "projects": [
     {
+      "id": "proj-1784566757767",
+      "projectNumber": "2870.80191.05",
+      "name": "Denali Park Pedestrian Bridge",
+      "category": "Bridges",
+      "priority": "High",
+      "status": "Planned",
+      "currentStatus": "None",
+      "dueDate": "2026-07-28",
+      "description": "Backcheck redlines for Carl while he is OOO",
+      "tasks": [
+        {
+          "id": "t-1784566757767",
+          "text": "Backcheck redlines",
+          "completed": false,
+          "dueDate": "2026-07-28"
+        }
+      ]
+    },
+    {
       "id": "proj-1784565239630",
       "projectNumber": "1150.62733.01",
       "name": "Wildlife Overcrossing",
