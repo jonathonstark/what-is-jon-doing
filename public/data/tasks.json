@@ -2,6 +2,30 @@
   "lastUpdated": "2026-07-20",
   "projects": [
     {
+      "id": "proj-1784565239630",
+      "projectNumber": "1150.62733.01",
+      "name": "Wildlife Overcrossing",
+      "category": "Bridges",
+      "priority": "Low",
+      "status": "Planned",
+      "dueDate": "2026-07-20",
+      "description": "Design and checking of a wildlife overcrossing for the Sterling Highway MP 45-60 project.",
+      "tasks": [
+        {
+          "id": "t-1784565239630",
+          "text": "RC modeling and initial design",
+          "completed": true,
+          "dueDate": "2026-07-03"
+        },
+        {
+          "id": "t-1784565322761",
+          "text": "Check with Jael on current status of design alternatives",
+          "completed": false,
+          "dueDate": "2026-07-20"
+        }
+      ]
+    },
+    {
       "id": "proj-1784565071399",
       "projectNumber": "1162.90102.08",
       "name": "Bradley Expansion Project",
