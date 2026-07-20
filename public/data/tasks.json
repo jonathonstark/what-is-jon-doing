@@ -7,7 +7,7 @@
       "status": "In Progress",
       "dueDate": "2026-08-15",
       "tasks": [
-        { "id": 1 text: "Review bent cap rebar ratios", "completed": true },
+        { "id": 1, "text": "Review bent cap rebar ratios", "completed": true },
         { "id": 2, "text": "Cross-reference WSDOT yield stress parameters", "completed": false }
       ]
     }
