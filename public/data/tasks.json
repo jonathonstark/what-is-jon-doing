@@ -3,7 +3,7 @@
   "projects": [
     {
       "id": "proj-1",
-      "name": "Bridge Substructu",
+      "name": "Bridge stuff",
       "priority": "High",
       "status": "In Progress",
       "dueDate": "2026-08-15",
