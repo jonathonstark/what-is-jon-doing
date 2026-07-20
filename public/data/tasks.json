@@ -144,7 +144,7 @@
         {
           "id": "t-1784566509365",
           "text": "Confirm dive date",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-24"
         }
       ],
