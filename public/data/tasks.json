@@ -1,5 +1,6 @@
 {
   "lastUpdated": "2026-07-20",
+  "statusBlurb": "Currently updating priorities and task deliverables.",
   "projects": [
     {
       "id": "proj-1784565239630",
@@ -8,7 +9,7 @@
       "category": "Bridges",
       "priority": "Low",
       "status": "Planned",
-      "dueDate": "2026-07-20",
+      "dueDate": "2026-07-27",
       "description": "Design and checking of a wildlife overcrossing for the Sterling Highway MP 45-60 project.",
       "tasks": [
         {
@@ -20,10 +21,17 @@
         {
           "id": "t-1784565322761",
           "text": "Check with Jael on current status of design alternatives",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-20"
+        },
+        {
+          "id": "t-1784566399895",
+          "text": "Check on response from Contech",
+          "completed": false,
+          "dueDate": "2026-07-27"
         }
-      ]
+      ],
+      "currentStatus": "Awaiting response on alternatives from Contech (7/20)"
     },
     {
       "id": "proj-1784565071399",
