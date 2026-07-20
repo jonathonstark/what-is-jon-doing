@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
 
 const REPO_OWNER = "jonathonstark";
 const REPO_NAME = "what-is-jon-doing";
@@ -9,7 +9,7 @@ export default function App() {
   const [data, setData] = useState({ lastUpdated: '', projects: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Search & Filter State
   const [search, setSearch] = useState('');
   const [priorityFilter, setPriorityFilter] = useState('All');
@@ -34,7 +34,7 @@ export default function App() {
       const json = await res.json();
       setData(json);
       setEditProjects(json.projects || []);
-      
+
       fetchFileSha();
     } catch (err) {
       setError(err.message);
@@ -80,7 +80,10 @@ export default function App() {
         projects: editProjects
       };
 
-      const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(updatedData, null, 2))));
+      // Safe base64 encoding for Unicode / UTF-8
+      const jsonString = JSON.stringify(updatedData, null, 2);
+      const bytes = new TextEncoder().encode(jsonString);
+      const contentEncoded = btoa(String.fromCharCode(...bytes));
 
       let currentSha = fileSha;
       if (!currentSha) {
@@ -155,6 +158,7 @@ export default function App() {
     }
   };
 
+  // Safe Immutable State Updaters
   const handleAddProject = () => {
     const newProj = {
       id: `proj-${Date.now()}`,
@@ -166,42 +170,58 @@ export default function App() {
       description: "Brief project description...",
       tasks: [{ id: `t-${Date.now()}`, text: "Initial task", completed: false }]
     };
-    setEditProjects([newProj, ...editProjects]);
+    setEditProjects(prev => [newProj, ...prev]);
   };
 
   const handleUpdateProjectField = (index, field, value) => {
-    const updated = [...editProjects];
-    updated[index][field] = value;
-    setEditProjects(updated);
+    setEditProjects(prev => prev.map((proj, pIdx) => 
+      pIdx === index ? { ...proj, [field]: value } : proj
+    ));
   };
 
   const handleAddTask = (projIndex) => {
-    const updated = [...editProjects];
-    updated[projIndex].tasks.push({
-      id: `t-${Date.now()}`,
-      text: "New task item",
-      completed: false
-    });
-    setEditProjects(updated);
+    setEditProjects(prev => prev.map((proj, pIdx) => {
+      if (pIdx !== projIndex) return proj;
+      return {
+        ...proj,
+        tasks: [...(proj.tasks || []), { id: `t-${Date.now()}`, text: "New task item", completed: false }]
+      };
+    }));
+  };
+
+  const handleUpdateTaskText = (projIndex, taskIndex, text) => {
+    setEditProjects(prev => prev.map((proj, pIdx) => {
+      if (pIdx !== projIndex) return proj;
+      return {
+        ...proj,
+        tasks: proj.tasks.map((t, tIdx) => tIdx === taskIndex ? { ...t, text } : t)
+      };
+    }));
   };
 
   const handleToggleTask = (projIndex, taskIndex) => {
-    const updated = [...editProjects];
-    updated[projIndex].tasks[taskIndex].completed = !updated[projIndex].tasks[taskIndex].completed;
-    setEditProjects(updated);
+    setEditProjects(prev => prev.map((proj, pIdx) => {
+      if (pIdx !== projIndex) return proj;
+      return {
+        ...proj,
+        tasks: proj.tasks.map((t, tIdx) => tIdx === taskIndex ? { ...t, completed: !t.completed } : t)
+      };
+    }));
   };
 
   const handleDeleteTask = (projIndex, taskIndex) => {
-    const updated = [...editProjects];
-    updated[projIndex].tasks.splice(taskIndex, 1);
-    setEditProjects(updated);
+    setEditProjects(prev => prev.map((proj, pIdx) => {
+      if (pIdx !== projIndex) return proj;
+      return {
+        ...proj,
+        tasks: proj.tasks.filter((_, tIdx) => tIdx !== taskIndex)
+      };
+    }));
   };
 
   const handleDeleteProject = (projIndex) => {
     if (confirm("Are you sure you want to delete this project?")) {
-      const updated = [...editProjects];
-      updated.splice(projIndex, 1);
-      setEditProjects(updated);
+      setEditProjects(prev => prev.filter((_, pIdx) => pIdx !== projIndex));
     }
   };
 
@@ -554,11 +574,7 @@ export default function App() {
                             <input
                               type="text"
                               value={task.text}
-                              onChange={(e) => {
-                                const updated = [...editProjects];
-                                updated[pIdx].tasks[tIdx].text = e.target.value;
-                                setEditProjects(updated);
-                              }}
+                              onChange={(e) => handleUpdateTaskText(pIdx, tIdx, e.target.value)}
                               className="flex-1 px-2 py-1 bg-white border border-slate-300 rounded text-xs"
                             />
                             <button
