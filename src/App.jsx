@@ -104,7 +104,7 @@ export default function App() {
           'Accept': 'application/vnd.github.v3+json'
         },
         body: JSON.stringify({
-          message: `Update tasks and project priorities [Dashboard Admin]`,
+          message: `Update tasks and subtask target dates [Dashboard Admin]`,
           content: contentEncoded,
           sha: currentSha
         })
@@ -160,15 +160,16 @@ export default function App() {
 
   // Safe Immutable State Updaters
   const handleAddProject = () => {
+    const today = new Date().toISOString().split('T')[0];
     const newProj = {
       id: `proj-${Date.now()}`,
       name: "New Project Title",
       category: "General",
       priority: "Medium",
       status: "Planned",
-      dueDate: new Date().toISOString().split('T')[0],
+      dueDate: today,
       description: "Brief project description...",
-      tasks: [{ id: `t-${Date.now()}`, text: "Initial task", completed: false }]
+      tasks: [{ id: `t-${Date.now()}`, text: "Initial task", completed: false, dueDate: today }]
     };
     setEditProjects(prev => [newProj, ...prev]);
   };
@@ -180,11 +181,12 @@ export default function App() {
   };
 
   const handleAddTask = (projIndex) => {
+    const defaultDate = editProjects[projIndex]?.dueDate || new Date().toISOString().split('T')[0];
     setEditProjects(prev => prev.map((proj, pIdx) => {
       if (pIdx !== projIndex) return proj;
       return {
         ...proj,
-        tasks: [...(proj.tasks || []), { id: `t-${Date.now()}`, text: "New task item", completed: false }]
+        tasks: [...(proj.tasks || []), { id: `t-${Date.now()}`, text: "New task item", completed: false, dueDate: defaultDate }]
       };
     }));
   };
@@ -195,6 +197,16 @@ export default function App() {
       return {
         ...proj,
         tasks: proj.tasks.map((t, tIdx) => tIdx === taskIndex ? { ...t, text } : t)
+      };
+    }));
+  };
+
+  const handleUpdateTaskDate = (projIndex, taskIndex, dueDate) => {
+    setEditProjects(prev => prev.map((proj, pIdx) => {
+      if (pIdx !== projIndex) return proj;
+      return {
+        ...proj,
+        tasks: proj.tasks.map((t, tIdx) => tIdx === taskIndex ? { ...t, dueDate } : t)
       };
     }));
   };
@@ -372,21 +384,28 @@ export default function App() {
 
                       <div className="space-y-2 pt-2 border-t border-slate-100">
                         <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Key Deliverables</span>
-                        <ul className="space-y-1.5">
+                        <ul className="space-y-2">
                           {project.tasks?.map((task) => (
-                            <li key={task.id} className="flex items-start gap-2 text-xs text-slate-700">
-                              <span className={`mt-0.5 w-3.5 h-3.5 rounded flex items-center justify-center border shrink-0 ${
-                                task.completed ? 'bg-blue-600 border-blue-600 text-white' : 'border-slate-300 bg-white'
-                              }`}>
-                                {task.completed && (
-                                  <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                                  </svg>
-                                )}
-                              </span>
-                              <span className={task.completed ? 'line-through text-slate-400' : ''}>
-                                {task.text}
-                              </span>
+                            <li key={task.id} className="flex items-start justify-between gap-2 text-xs text-slate-700">
+                              <div className="flex items-start gap-2 min-w-0">
+                                <span className={`mt-0.5 w-3.5 h-3.5 rounded flex items-center justify-center border shrink-0 ${
+                                  task.completed ? 'bg-blue-600 border-blue-600 text-white' : 'border-slate-300 bg-white'
+                                }`}>
+                                  {task.completed && (
+                                    <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                  )}
+                                </span>
+                                <span className={`truncate ${task.completed ? 'line-through text-slate-400' : ''}`}>
+                                  {task.text}
+                                </span>
+                              </div>
+                              {task.dueDate && (
+                                <span className="text-[10px] font-medium text-slate-400 bg-slate-50 px-1.5 py-0.5 rounded border border-slate-200 shrink-0">
+                                  {task.dueDate}
+                                </span>
+                              )}
                             </li>
                           ))}
                         </ul>
@@ -394,7 +413,7 @@ export default function App() {
                     </div>
 
                     <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 text-xs text-slate-500 flex justify-between items-center">
-                      <span>Target Completion:</span>
+                      <span>Project Target:</span>
                       <strong className="text-slate-700 font-semibold">{project.dueDate}</strong>
                     </div>
                   </div>
@@ -531,7 +550,7 @@ export default function App() {
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="text-xs font-semibold text-slate-600 block mb-1">Target Due Date</label>
+                        <label className="text-xs font-semibold text-slate-600 block mb-1">Overall Project Due Date</label>
                         <input
                           type="date"
                           value={proj.dueDate}
@@ -562,9 +581,9 @@ export default function App() {
                         </button>
                       </div>
 
-                      <div className="space-y-1.5">
+                      <div className="space-y-2">
                         {proj.tasks?.map((task, tIdx) => (
-                          <div key={task.id || tIdx} className="flex items-center gap-2">
+                          <div key={task.id || tIdx} className="flex items-center gap-2 bg-white p-2 border border-slate-200 rounded-lg">
                             <input
                               type="checkbox"
                               checked={task.completed}
@@ -573,13 +592,20 @@ export default function App() {
                             />
                             <input
                               type="text"
+                              placeholder="Subtask description..."
                               value={task.text}
                               onChange={(e) => handleUpdateTaskText(pIdx, tIdx, e.target.value)}
-                              className="flex-1 px-2 py-1 bg-white border border-slate-300 rounded text-xs"
+                              className="flex-1 px-2 py-1 bg-slate-50 border border-slate-300 rounded text-xs"
+                            />
+                            <input
+                              type="date"
+                              value={task.dueDate || ''}
+                              onChange={(e) => handleUpdateTaskDate(pIdx, tIdx, e.target.value)}
+                              className="px-2 py-1 bg-slate-50 border border-slate-300 rounded text-xs shrink-0"
                             />
                             <button
                               onClick={() => handleDeleteTask(pIdx, tIdx)}
-                              className="text-slate-400 hover:text-red-600 p-1"
+                              className="text-slate-400 hover:text-red-600 p-1 shrink-0"
                             >
                               ✕
                             </button>
