@@ -8,7 +8,7 @@
       "priority": "High",
       "status": "In Review",
       "dueDate": "2026-07-23",
-      "description": "Acting as checker for Ben Wardell design.\n\n27771.80703.01",
+      "description": "Acting as checker for Ben Wardell design.",
       "tasks": [
         {
           "id": "t-1784564055169",
@@ -34,7 +34,8 @@
           "completed": false,
           "dueDate": "2026-07-22"
         }
-      ]
+      ],
+      "projectNumber": "27771.80703.01"
     },
     {
       "id": "proj-1784563965259",
