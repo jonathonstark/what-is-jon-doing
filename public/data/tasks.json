@@ -61,7 +61,8 @@
           "completed": false,
           "dueDate": "2026-07-31"
         }
-      ]
+      ],
+      "currentStatus": "Support Aleyna in initial feasibility analysis (stability, statics) for MSE wall alternative."
     },
     {
       "id": "proj-1784564055169",
@@ -97,15 +98,16 @@
           "dueDate": "2026-07-22"
         }
       ],
-      "projectNumber": "27771.80703.01"
+      "projectNumber": "27771.80703.01",
+      "currentStatus": "Review calc QC with Ben to incorporate edits and design changes."
     },
     {
       "id": "proj-1784563965259",
       "name": "Geren Island Dive Observation",
       "category": "Bridges",
-      "priority": "Low",
+      "priority": "Medium",
       "status": "Planned",
-      "dueDate": "2026-07-27",
+      "dueDate": "2026-07-29",
       "description": "Full day dive observation.",
       "tasks": [
         {
@@ -119,9 +121,16 @@
           "text": "Dive findings memo",
           "completed": false,
           "dueDate": "2026-07-29"
+        },
+        {
+          "id": "t-1784566509365",
+          "text": "Confirm dive date",
+          "completed": false,
+          "dueDate": "2026-07-24"
         }
       ],
-      "projectNumber": "2870.000971.01"
+      "projectNumber": "2870.000971.01",
+      "currentStatus": "Awaiting confirmed dive date from city for dam inspection."
     },
     {
       "id": "proj-1784563729904",
@@ -163,7 +172,8 @@
           "dueDate": "2026-07-24"
         }
       ],
-      "projectNumber": "1150.62733.01"
+      "projectNumber": "1150.62733.01",
+      "currentStatus": "Compiling railing alternatives for NFS and awaiting Mike McNulty review."
     },
     {
       "id": "proj-1",
@@ -186,7 +196,8 @@
         }
       ],
       "category": "Admin",
-      "description": "Determine which pursuits published by MDT would be worth pursuing for DOWL. Target bridge replacement."
+      "description": "Determine which pursuits published by MDT would be worth pursuing for DOWL. Target bridge replacement.",
+      "currentStatus": "Awaiting Mike Miotke review of pursuit recommendations."
     }
   ]
 }
