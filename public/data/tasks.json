@@ -3,6 +3,67 @@
   "statusBlurb": "Considering deflections of overhung beams for Juneau Creek Overlook",
   "projects": [
     {
+      "id": "proj-1784752924274",
+      "projectNumber": "PRJ-008",
+      "name": "Basalt Creek Load Rating",
+      "category": "General",
+      "priority": "Low",
+      "status": "In Progress",
+      "currentStatus": "Initial setup underway.",
+      "dueDate": "2026-08-28",
+      "description": "Design load rating for Basalt Creek bridge.",
+      "tasks": [
+        {
+          "id": "t-1784752924274",
+          "text": "Create load rating directory with all relevant plans, ODOT templates, etc.",
+          "completed": false,
+          "dueDate": "2026-07-24"
+        },
+        {
+          "id": "t-1784752963472",
+          "text": "Determine MBE/LRFR guidance for LR (girder line, frame, grillage, etc.)",
+          "completed": false,
+          "dueDate": "2026-07-31"
+        },
+        {
+          "id": "t-1784752963608",
+          "text": "Meet with Barney to discuss any bridge specifics and checker timeline.",
+          "completed": false,
+          "dueDate": "2026-07-31"
+        },
+        {
+          "id": "t-1784752963746",
+          "text": "Preliminary load rating files (mathCAD, excel, .dat files)",
+          "completed": false,
+          "dueDate": "2026-08-07"
+        },
+        {
+          "id": "t-1784753086697",
+          "text": "Check preliminary files, finalize superstructure rating.",
+          "completed": false,
+          "dueDate": "2026-08-07"
+        },
+        {
+          "id": "t-1784753112905",
+          "text": "Crossbeam load rating and checking.",
+          "completed": false,
+          "dueDate": "2026-08-14"
+        },
+        {
+          "id": "t-1784753176379",
+          "text": "Compile load rating and complete final checks",
+          "completed": false,
+          "dueDate": "2026-08-21"
+        },
+        {
+          "id": "t-1784753196719",
+          "text": "Complete load rating",
+          "completed": false,
+          "dueDate": "2026-08-28"
+        }
+      ]
+    },
+    {
       "id": "proj-1784566757767",
       "projectNumber": "2870.80191.05",
       "name": "Denali Park Pedestrian Bridge",
