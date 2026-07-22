@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-20",
-  "statusBlurb": "Compiling railing alternatives",
+  "lastUpdated": "2026-07-22",
+  "statusBlurb": "Considering deflections of overhung beams for Juneau Creek Overlook",
   "projects": [
     {
       "id": "proj-1784566757767",
@@ -72,7 +72,7 @@
           "id": "t-1784565145454",
           "text": "Review Aleyna stability checks for MSE alternative",
           "completed": false,
-          "dueDate": "2026-07-24"
+          "dueDate": "2026-07-27"
         },
         {
           "id": "t-1784565145765",
@@ -169,7 +169,7 @@
         {
           "id": "t-1784563877790",
           "text": "Mike McNulty Review",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-24"
         },
         {
@@ -189,10 +189,16 @@
           "text": "Check in with Kirstina Koltavary on Rail Design",
           "completed": false,
           "dueDate": "2026-07-24"
+        },
+        {
+          "id": "t-1784739094483",
+          "text": "Develop span independent deflection",
+          "completed": false,
+          "dueDate": "2026-07-22"
         }
       ],
       "projectNumber": "1150.62733.01",
-      "currentStatus": "Awaiting Mike McNulty review and Kristina Koltavary aesthetic recommendations."
+      "currentStatus": "Exploring span and member size adjustments to address deflection limitations. Awaiting Eli response and Kristina Koltavary aesthetic recommendations."
     },
     {
       "id": "proj-1",
