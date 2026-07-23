@@ -162,7 +162,7 @@
         {
           "id": "t-1784564160719",
           "text": "Review with Ben",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-22"
         },
         {
@@ -254,7 +254,7 @@
         {
           "id": "t-1784739094483",
           "text": "Develop span independent deflection",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-22"
         }
       ],
@@ -277,7 +277,7 @@
         {
           "id": 2,
           "text": "Review with Mike Miotke",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-24"
         }
       ],
