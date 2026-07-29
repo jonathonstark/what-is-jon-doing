@@ -71,7 +71,7 @@
       "priority": "High",
       "status": "Planned",
       "currentStatus": "None",
-      "dueDate": "2026-07-28",
+      "dueDate": "2026-07-30",
       "description": "Backcheck redlines for Carl while he is OOO",
       "tasks": [
         {
@@ -79,6 +79,18 @@
           "text": "Backcheck redlines",
           "completed": true,
           "dueDate": "2026-07-28"
+        },
+        {
+          "id": "t-1785344163154",
+          "text": "Review outstanding comments with Carl",
+          "completed": false,
+          "dueDate": "2026-07-30"
+        },
+        {
+          "id": "t-1785344177138",
+          "text": "Quantities and Estimates?",
+          "completed": false,
+          "dueDate": "2026-07-30"
         }
       ]
     },
