@@ -60,6 +60,12 @@
           "text": "Complete load rating",
           "completed": false,
           "dueDate": "2026-08-21"
+        },
+        {
+          "id": "t-1785345165656",
+          "text": "Generate design deviation from design exception documentation",
+          "completed": false,
+          "dueDate": "2026-07-31"
         }
       ]
     },
