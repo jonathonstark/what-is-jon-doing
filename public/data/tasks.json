@@ -217,7 +217,7 @@
         {
           "id": "t-1784564030251",
           "text": "Dive findings memo",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-29"
         },
         {
