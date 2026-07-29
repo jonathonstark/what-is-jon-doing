@@ -158,15 +158,21 @@ export default function App() {
     });
   }, [data, search, priorityFilter, statusFilter]);
 
-  // Priority sorting for Summary view
-  const summaryProjectsByPriority = useMemo(() => {
-    const priorityOrder = { 'High': 1, 'Medium': 2, 'Low': 3 };
-    return [...(data.projects || [])].sort((a, b) => {
+// Priority sorting for Summary view (only projects with active tasks)
+const summaryProjectsByPriority = useMemo(() => {
+  const priorityOrder = { 'High': 1, 'Medium': 2, 'Low': 3 };
+  return [...(data.projects || [])]
+    .filter(project => {
+      // Check if the project has at least one task that is NOT completed
+      const hasUncompletedTasks = project.tasks && project.tasks.some(task => !task.completed);
+      return hasUncompletedTasks;
+    })
+    .sort((a, b) => {
       const pA = priorityOrder[a.priority] || 4;
       const pB = priorityOrder[b.priority] || 4;
       return pA - pB;
     });
-  }, [data]);
+}, [data]);
 
   // Get next 2 unchecked subtasks sorted by due date
   const getNextTwoTasks = (tasks = []) => {
