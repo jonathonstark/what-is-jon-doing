@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-24",
+  "lastUpdated": "2026-07-29",
   "statusBlurb": "Backcheck Denali Ped Bridge Redlines",
   "projects": [
     {
@@ -77,7 +77,7 @@
         {
           "id": "t-1784566757767",
           "text": "Backcheck redlines",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-28"
         }
       ]
@@ -120,7 +120,7 @@
       "category": "Structures",
       "priority": "Medium",
       "status": "Planned",
-      "dueDate": "2026-07-31",
+      "dueDate": "2026-08-07",
       "description": "My role is currently limited to the sediment guide wall to divert sediment from the diversion dam.",
       "tasks": [
         {
@@ -133,13 +133,13 @@
           "id": "t-1784565145454",
           "text": "Review Aleyna stability checks for MSE alternative",
           "completed": false,
-          "dueDate": "2026-07-27"
+          "dueDate": "2026-07-31"
         },
         {
           "id": "t-1784565145765",
           "text": "Specs and Estimates",
           "completed": false,
-          "dueDate": "2026-07-31"
+          "dueDate": "2026-08-07"
         }
       ],
       "currentStatus": "Support Aleyna in initial feasibility analysis (stability, statics) for MSE wall alternative."
@@ -150,7 +150,7 @@
       "category": "Structures",
       "priority": "High",
       "status": "In Review",
-      "dueDate": "2026-07-23",
+      "dueDate": "2026-07-31",
       "description": "Acting as checker for Ben Wardell design.",
       "tasks": [
         {
@@ -175,7 +175,7 @@
           "id": "t-1784564187137",
           "text": "Quantities and Estimates check",
           "completed": false,
-          "dueDate": "2026-07-22"
+          "dueDate": "2026-07-31"
         }
       ],
       "projectNumber": "27771.80703.01",
@@ -193,7 +193,7 @@
         {
           "id": "t-1784563965259",
           "text": "Dive Observation",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-27"
         },
         {
@@ -218,7 +218,7 @@
       "category": "Structures",
       "priority": "Medium",
       "status": "In Review",
-      "dueDate": "2026-07-24",
+      "dueDate": "2026-07-31",
       "description": "Cantilevered timber overlook design.",
       "tasks": [
         {
@@ -243,7 +243,7 @@
           "id": "t-1784563893883",
           "text": "Specs and Estimates",
           "completed": false,
-          "dueDate": "2026-07-24"
+          "dueDate": "2026-07-31"
         },
         {
           "id": "t-1784563894050",
@@ -256,6 +256,18 @@
           "text": "Develop span independent deflection",
           "completed": true,
           "dueDate": "2026-07-22"
+        },
+        {
+          "id": "t-1785344108184",
+          "text": "Update glulam design for new snow loads",
+          "completed": false,
+          "dueDate": "2026-07-29"
+        },
+        {
+          "id": "t-1785344124024",
+          "text": "Review with Mike McNulty",
+          "completed": false,
+          "dueDate": "2026-07-31"
         }
       ],
       "projectNumber": "1150.62733.01",
