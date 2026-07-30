@@ -44,7 +44,7 @@ export default function JonsDashboard() {
 
   // Initial Fetch
   useEffect(() => {
-    fetch('public/data/tasks.json')
+    fetch('/data/tasks.json')
       .then((res) => res.json())
       .then((jsonData) => {
         setData(jsonData);
