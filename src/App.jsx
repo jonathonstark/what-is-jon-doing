@@ -32,7 +32,7 @@ export default function JonsDashboard() {
 
   // Initial Fetch
   useEffect(() => {
-    fetch('/data/tasks.json')
+    fetch('public/data/tasks.json')
       .then((res) => res.json())
       .then((jsonData) => {
         setData(jsonData);
