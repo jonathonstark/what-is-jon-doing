@@ -57,7 +57,7 @@ export default function JonsDashboard() {
   };
 
   // GitHub Batch Save Handler
-  const handleSaveToGithub = async () => {
+  const handleSaveToGitHub = async () => {
   try {
     const REPO_OWNER = 'jonathonstark';
     const REPO_NAME = 'what-is-jon-doing';
