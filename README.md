@@ -1,2 +1,7 @@
-# what-is-jon-doing
-A dashboard for coworker with a prioritized schedule of work.
+{
+  "name": "what-is-jon-doing",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {}
+}

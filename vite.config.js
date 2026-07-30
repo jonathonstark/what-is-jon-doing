@@ -1,7 +1,2 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-  base: '/what-is-jon-doing/',
-})
+# what-is-jon-doing
+A dashboard for coworker with a prioritized schedule of work.
