@@ -62,7 +62,7 @@ export default function JonsDashboard() {
     const REPO_OWNER = 'jonathonstark';
     const REPO_NAME = 'what-is-jon-doing';
     const FILE_PATH = 'public/data/tasks.json'; // Or 'data/tasks.json' depending on repo layout
-    const GITHUB_TOKEN = userToken; // Your Personal Access Token from state/localStorage
+    const GITHUB_TOKEN = githubToken; // Your Personal Access Token from state/localStorage
 
     // 1. Fetch the LATEST file metadata directly from GitHub API to get the current SHA
     const fileRes = await fetch(
