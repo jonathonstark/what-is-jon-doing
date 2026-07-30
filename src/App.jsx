@@ -57,55 +57,80 @@ export default function JonsDashboard() {
   };
 
   // GitHub Batch Save Handler
-  const handleSaveToGitHub = async () => {
-    if (!githubToken) {
-      setShowTokenPrompt(true);
-      return;
+  const handleSaveToGithub = async () => {
+  try {
+    const REPO_OWNER = 'jonathonstark';
+    const REPO_NAME = 'what-is-jon-doing';
+    const FILE_PATH = 'public/data/tasks.json'; // Or 'data/tasks.json' depending on repo layout
+    const GITHUB_TOKEN = userToken; // Your Personal Access Token from state/localStorage
+
+    // 1. Fetch the LATEST file metadata directly from GitHub API to get the current SHA
+    const fileRes = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
+      {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+          Accept: 'application/vnd.github.v3+json',
+        },
+      }
+    );
+
+    if (!fileRes.ok) {
+      throw new Error(`Failed to fetch latest SHA: ${fileRes.statusText}`);
     }
 
-    setIsSaving(true);
-    try {
-      // Fetch latest SHA right before committing to avoid 409 conflict
-      const getRes = await fetch(
-        `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
-        { headers: { Authorization: `Bearer ${githubToken}` } }
+    const fileData = await fileRes.json();
+    const latestSha = fileData.sha; // Get the fresh SHA!
+
+    // 2. Prepare updated tasks data (with an updated lastUpdated date)
+    const updatedData = {
+      ...tasksData,
+      lastUpdated: new Date().toISOString().split('T')[0],
+    };
+
+    // Helper function to safely base64 encode UTF-8 JSON strings
+    const safeBtoa = (str) =>
+      btoa(
+        encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (match, p1) =>
+          String.fromCharCode('0x' + p1)
+        )
       );
 
-      if (!getRes.ok) throw new Error('Failed to verify GitHub file SHA.');
-      const fileMetaData = await getRes.json();
+    // 3. Commit the file back to GitHub using the fresh SHA
+    const commitRes = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+          'Content-Type': 'application/json',
+          Accept: 'application/vnd.github.v3+json',
+        },
+        body: JSON.stringify({
+          message: 'Update tasks.json via Dashboard',
+          content: safeBtoa(JSON.stringify(updatedData, null, 2)),
+          sha: latestSha, // <-- Fresh SHA ensures GitHub accepts the commit!
+        }),
+      }
+    );
 
-      const payloadData = {
-        ...data,
-        projects: projects
-      };
-
-      const putRes = await fetch(
-        `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
-        {
-          method: 'PUT',
-          headers: {
-            Authorization: `Bearer ${githubToken}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: `Update dashboard projects via Jon's Dashboard [skip ci]`,
-            content: safeBtoa(JSON.stringify(payloadData, null, 2)),
-            sha: fileMetaData.sha
-          })
-        }
-      );
-
-      if (!putRes.ok) throw new Error('Failed to commit updates to GitHub.');
-
-      setData(payloadData);
-      setHasUnsavedChanges(false);
-      alert('Dashboard updated and published successfully!');
-    } catch (err) {
-      alert(`Save failed: ${err.message}`);
-    } finally {
-      setIsSaving(false);
+    if (!commitRes.ok) {
+      const errData = await commitRes.json();
+      throw new Error(errData.message || 'Failed to commit changes');
     }
-  };
+
+    const commitData = await commitRes.json();
+    console.log('Successfully committed to GitHub!', commitData);
+    
+    // Update local state with latest data
+    setTasksData(updatedData);
+    alert('Tasks successfully saved and committed to GitHub!');
+
+  } catch (error) {
+    console.error('Error committing to GitHub:', error);
+    alert(`Commit failed: ${error.message}`);
+  }
+};
 
   // Inline Card Edit Handlers
   const handleProjectChange = (pIdx, field, value) => {
