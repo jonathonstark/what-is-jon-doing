@@ -1,15 +1,3 @@
-// import React from 'react';
-
-// export default function App() {
-//   console.log("App component is mounting!");
-//   return (
-//     <div style={{ padding: '20px', color: 'red', backgroundColor: '#1e293b' }}>
-//       <h1>Test Render: App is alive!</h1>
-//     </div>
-//   );
-// }
-
-
 import React, { useState, useMemo, useEffect } from 'react';
 
 // Configuration
@@ -44,7 +32,7 @@ export default function JonsDashboard() {
 
   // Initial Fetch
   useEffect(() => {
-    fetch('/data/tasks.json')
+    fetch('data/tasks.json')
       .then((res) => res.json())
       .then((jsonData) => {
         setData(jsonData);
