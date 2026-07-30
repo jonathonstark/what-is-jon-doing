@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-29",
+  "lastUpdated": "2026-07-30",
   "statusBlurb": "Discussion with Barney about Basalt Creek deliverables",
   "projects": [
     {
@@ -89,7 +89,7 @@
         {
           "id": "t-1785344163154",
           "text": "Review outstanding comments with Carl",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-30"
         },
         {
