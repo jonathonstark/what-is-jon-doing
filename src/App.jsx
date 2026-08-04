@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import ReactDOM from 'react-dom/client';
 
 const REPO_OWNER = "jonathonstark";
 const REPO_NAME = "what-is-jon-doing";
