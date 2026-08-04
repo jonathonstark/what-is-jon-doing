@@ -1,7 +1,38 @@
 {
-  "lastUpdated": "2026-08-03",
+  "lastUpdated": "2026-08-04",
   "statusBlurb": "JCO QC Edits",
   "projects": [
+    {
+      "id": "proj-1785856363550",
+      "projectNumber": "1571.50315.02",
+      "name": "Statewide Aviation Standard Plans",
+      "category": "General",
+      "priority": "High",
+      "status": "In Progress",
+      "currentStatus": "Review CLFMI standards and excel sheet",
+      "dueDate": "2026-08-06",
+      "description": "Generate standard plans for 8', 10', and 12' chain link metal fences for use by AKDOT&PF in various wind and soil conditions.",
+      "tasks": [
+        {
+          "id": "t-1785856363550",
+          "text": "Review standards CLFMI",
+          "completed": false,
+          "dueDate": "2026-08-05"
+        },
+        {
+          "id": "t-1785856470048",
+          "text": "Review excel dashboard",
+          "completed": false,
+          "dueDate": "2026-08-06"
+        },
+        {
+          "id": "t-1785856726242",
+          "text": "Produce independent calc",
+          "completed": false,
+          "dueDate": "2026-08-06"
+        }
+      ]
+    },
     {
       "id": "proj-1784752924274",
       "projectNumber": "0019-0471.00",
