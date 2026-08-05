@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-04",
+  "lastUpdated": "2026-08-05",
   "statusBlurb": "JCO QC Edits",
   "projects": [
     {
@@ -16,13 +16,13 @@
         {
           "id": "t-1785856363550",
           "text": "Review standards CLFMI",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-08-05"
         },
         {
           "id": "t-1785856470048",
           "text": "Review excel dashboard",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-08-06"
         },
         {
@@ -95,7 +95,7 @@
         {
           "id": "t-1785345165656",
           "text": "Generate design deviation from design exception documentation",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-31"
         }
       ]
@@ -138,7 +138,7 @@
       "category": "Bridges",
       "priority": "Low",
       "status": "Planned",
-      "dueDate": "2026-07-27",
+      "dueDate": "2026-08-07",
       "description": "Design and checking of a wildlife overcrossing for the Sterling Highway MP 45-60 project.",
       "tasks": [
         {
@@ -157,7 +157,7 @@
           "id": "t-1784566399895",
           "text": "Check on response from Contech",
           "completed": false,
-          "dueDate": "2026-07-27"
+          "dueDate": "2026-08-07"
         }
       ],
       "currentStatus": "Awaiting response on alternatives from Contech (7/20)"
@@ -169,7 +169,7 @@
       "category": "Structures",
       "priority": "Medium",
       "status": "Planned",
-      "dueDate": "2026-08-07",
+      "dueDate": "2026-08-14",
       "description": "My role is currently limited to the sediment guide wall to divert sediment from the diversion dam.",
       "tasks": [
         {
@@ -182,13 +182,13 @@
           "id": "t-1784565145454",
           "text": "Review Aleyna stability checks for MSE alternative",
           "completed": false,
-          "dueDate": "2026-07-31"
+          "dueDate": "2026-08-14"
         },
         {
           "id": "t-1784565145765",
           "text": "Specs and Estimates",
           "completed": false,
-          "dueDate": "2026-08-07"
+          "dueDate": "2026-08-14"
         }
       ],
       "currentStatus": "Support Aleyna in initial feasibility analysis (stability, statics) for MSE wall alternative."
@@ -199,7 +199,7 @@
       "category": "Structures",
       "priority": "High",
       "status": "In Review",
-      "dueDate": "2026-07-31",
+      "dueDate": "2026-07-24",
       "description": "Acting as checker for Ben Wardell design.",
       "tasks": [
         {
@@ -219,12 +219,6 @@
           "text": "Redlines to CAD",
           "completed": true,
           "dueDate": "2026-07-24"
-        },
-        {
-          "id": "t-1784564187137",
-          "text": "Quantities and Estimates check",
-          "completed": false,
-          "dueDate": "2026-07-31"
         }
       ],
       "projectNumber": "27771.80703.01",
@@ -267,7 +261,7 @@
       "category": "Structures",
       "priority": "Medium",
       "status": "In Review",
-      "dueDate": "2026-07-31",
+      "dueDate": "2026-08-07",
       "description": "Cantilevered timber overlook design.",
       "tasks": [
         {
@@ -298,7 +292,7 @@
           "id": "t-1784563894050",
           "text": "Check in with Kirstina Koltavary on Rail Design",
           "completed": false,
-          "dueDate": "2026-07-24"
+          "dueDate": "2026-08-07"
         },
         {
           "id": "t-1784739094483",
@@ -315,7 +309,7 @@
         {
           "id": "t-1785344124024",
           "text": "Review with Mike McNulty",
-          "completed": false,
+          "completed": true,
           "dueDate": "2026-07-31"
         }
       ],
